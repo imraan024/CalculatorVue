@@ -82,8 +82,14 @@ export default {
       this.setPrevious();
     },
     equal(){
+      if (this.previous == null){
+        this.current = parseFloat(this.current);
+      }
+      else{
       this.current = `${this.operator(parseFloat(this.previous), parseFloat(this.current))}`;
       this.previous = null;
+      }
+      
     }
   }
 
@@ -121,9 +127,7 @@ p{
   text-align: center;
   
 }
-#add{
-  
-}
+
 #zero{
   grid-column: 1 /3;
 }
