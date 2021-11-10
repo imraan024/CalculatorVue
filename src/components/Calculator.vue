@@ -4,22 +4,23 @@
     <p @click="clear" class = "btn">C</p>
     <p @click="sign" class = "btn">+/-</p>
     <p @click="percent" class = "btn">%</p>
-    <p @click="divide" class="btn operator">/</p>
+    <p @click="del" class="btn operator" id="del">Del</p>
     <p @click="append('7')" class = "btn">7</p>
     <p @click="append('8')" class = "btn">8</p>
     <p @click="append('9')" class = "btn">9</p>
-    <p @click="multiply" class="btn operator">*</p>
+    <p @click="divide" class="btn operator">/</p>
     <p @click="append('4')" class = "btn">4</p>
     <p @click="append('5')" class = "btn">5</p>
     <p @click="append('6')" class = "btn">6</p>
-    <p @click="subtract" class="btn operator">-</p>
+    <p @click="multiply" class="btn operator">*</p>
     <p @click="append('1')" class = "btn">1</p>
     <p @click="append('2')" class = "btn">2</p>
     <p @click="append('3')" class = "btn">3</p>
-    <p @click="add" class="btn operator" id="add">+</p>
-    <p @click="append('0')" class = "btn" id="zero">0</p>
+    <p @click="subtract" class="btn operator" >-</p>
+    <p @click="append('0')" class = "btn">0</p>
     <p @click="dot" class = "btn">.</p>
     <p @click="equal" class = "btn operator">=</p>
+    <p @click="add" class="btn operator">+</p>
 
   </div>
 </template>
@@ -55,6 +56,9 @@ export default {
       }
       this.current = `${this.current}${number}`;
       
+    },
+    del(){
+        this.current = this.current.slice(0, -1);
     },
     dot(){
       if (this.current.indexOf('.') === -1){
@@ -128,7 +132,7 @@ p{
   
 }
 
-#zero{
-  grid-column: 1 /3;
+#del{
+  background-color: red;
 }
 </style>
